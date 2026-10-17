@@ -1,4 +1,17 @@
 /*
+Simulation of Main Thread
+when u do node <filename.js>
+*/
+function mainThread(){
+    // it read ur code file from top to bottom
+    // run your file in stack (from top to bottom)
+    runOnStack("main (myfile.js)", myfilecontent);
+    runmicrotasks(); // 1. process.nextTick 2. Promise.resolve().then()
+    eventLoopSixPhases(); 
+    // No work left so threads ends --> process.exit
+}
+
+/*
 Event Loop - While Loop on the main Thread, that keep tracking what is in the queue
 
 Tick - One full round through all 5 phases
